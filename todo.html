@@ -14,7 +14,7 @@
 
 <body>
     <h1>Simple React Todo App</h1>
-    <!--Add a task state-->
+    <!--Render states in the DOM by looping through todo items using map functions-->
     <div id="app"></div>
     <script type="text/babel">
 
@@ -22,13 +22,26 @@
             constructor(props){
                 super(props);
                 this.state={
+                    // add temporary items
                     tasks:["Item one", "Item two", "Item three"],
                     input:""
                 }
             }
             render(){
                  return (
-                     <h1>Hello</h1>
+                     <div>
+                     <h3>List of Todo Items</h3>
+                     <ul>
+                        {
+                            this.state.tasks.map((task)=>
+                                <li>{task}</li>
+                            )
+                        }
+                     
+                     </ul>
+
+                     </div>
+
                  )
             }
         }
