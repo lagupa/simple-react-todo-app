@@ -23,7 +23,7 @@
                 super(props);
                 this.state={
                     // add temporary items
-                    tasks:["Item one", "Item two", "Item three"],
+                    tasks:[],
                     input:""
                 }
             }
@@ -60,7 +60,8 @@
 
             addTask=()=>{
                 this.setState(state =>({
-                    tasks:[...state.tasks, state.input]
+                    tasks:[...state.tasks, state.input],
+                    input:this.state.input=""
                 }));
             }
         }
