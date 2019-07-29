@@ -14,7 +14,7 @@
 
 <body>
     <h1>Simple React Todo App</h1>
-    <!--Clear the input value after adding items-->
+    <!--Conditional render the todo items using ternary operator (?)-->
     <div id="app"></div>
     <script type="text/babel">
 
@@ -28,28 +28,25 @@
                 }
             }
             
-            render(){
+            render(){            
                  return (
                      <div>
-                     <h3>List of Todo Items</h3>
-                     <ul>
-                        {
-                            this.state.tasks.map((task, index)=>
-                                <li key ={index}>{task}</li>
-                            )
+                        <h3>List of Todo Items</h3>                      
+                        <ul>
+                        {(this.state.tasks).length >0 ?(this.state.tasks.map((task, index)=>   
+                                    <li key ={index}>{task}</li>    
+                                )
+                                ):(
+                                    <h4>There are no todos </h4>
+                                )
                         }
-                     
-                     </ul>
-
-                     <div>
+                        </ul>
+                        <div>
                             <input onChange={this.handleChange} type="text" placeholder="Enter todo item" value={this.state.input} /> 
                             <button onClick={this.addTask}>Add Item</button>
-                        
-                    </div>
-
+                        </div>
                      </div>
-
-                 )
+                 )      
             }
 
             handleChange= (e)=>{
