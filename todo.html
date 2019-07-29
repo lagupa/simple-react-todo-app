@@ -10,19 +10,28 @@
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Simple React Todo App</h1>
-    <!--Conditional render the todo items using ternary operator (?)-->
-    <div id="app"></div>
+    <!--Basic Styling with Bootstrap-->
+    <div class="container-fluid bg-primary pt-5 pb-5">
+        <h1 class="text-white container">Simple React Todo App</h1>
+    </div>
+    <div class="container" id="app"></div>
+
+
+
+
     <script type="text/babel">
 
         class Todo extends React.Component{
             constructor(props){
                 super(props);
                 this.state={
-                    // add temporary items
                     tasks:[],
                     input:""
                 }
@@ -31,20 +40,25 @@
             render(){            
                  return (
                      <div>
-                        <h3>List of Todo Items</h3>                      
+                        <div>
+                            <h3 className=" pt-4 pb-2">Add Todos</h3>  
+
+                            <input className="form-control mb-4 mt-4" onChange={this.handleChange} type="text" placeholder="Enter todo item" value={this.state.input} /> 
+
+                            <button className="btn btn-primary mb-4" onClick={this.addTask}>Add Item</button>
+                        </div>
+                       
+
+                        <h3 className="pb-2 pt-4">List of Todo Items</h3>   <hr/>                    
                         <ul>
                         {(this.state.tasks).length >0 ?(this.state.tasks.map((task, index)=>   
                                     <li key ={index}>{task}</li>    
                                 )
                                 ):(
-                                    <h4>There are no todos </h4>
+                                    <li><h5>There are no todos </h5></li>
                                 )
                         }
                         </ul>
-                        <div>
-                            <input onChange={this.handleChange} type="text" placeholder="Enter todo item" value={this.state.input} /> 
-                            <button onClick={this.addTask}>Add Item</button>
-                        </div>
                      </div>
                  )      
             }
@@ -68,6 +82,8 @@
         ReactDOM.render(<Todo/>, document.querySelector("#app"))
     
     </script>
+
+
 
 </body>
 
