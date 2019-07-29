@@ -14,7 +14,7 @@
 
 <body>
     <h1>Simple React Todo App</h1>
-    <!--add input and add item button-->
+    <!--Resolve form field without an `onChange` handler erro!-->
     <div id="app"></div>
     <script type="text/babel">
 
@@ -51,7 +51,15 @@
 
                  )
             }
+
+            handleChange= (e)=>{
+                this.setState({
+                    input:e.target.value
+                })
+            }
         }
+
+
 
         ReactDOM.render(<Todo/>, document.querySelector("#app"))
     
