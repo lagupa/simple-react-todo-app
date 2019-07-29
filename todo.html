@@ -14,7 +14,7 @@
 
 <body>
     <h1>Simple React Todo App</h1>
-    <!--Resolve form field without an `onChange` handler erro!-->
+    <!--Clear the input value after adding items-->
     <div id="app"></div>
     <script type="text/babel">
 
@@ -56,6 +56,12 @@
                 this.setState({
                     input:e.target.value
                 })
+            }
+
+            addTask=()=>{
+                this.setState(state =>({
+                    tasks:[...state.tasks, state.input]
+                }));
             }
         }
 
