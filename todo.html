@@ -14,7 +14,7 @@
 
 <body>
     <h1>Simple React Todo App</h1>
-    <!--Resolve unique key prop error!-->
+    <!--add input and add item button-->
     <div id="app"></div>
     <script type="text/babel">
 
@@ -40,6 +40,12 @@
                         }
                      
                      </ul>
+
+                     <div>
+                            <input onChange={this.handleChange} type="text" placeholder="Enter todo item" value={this.state.input} /> 
+                            <button onClick={this.addTask}>Add Item</button>
+                        
+                    </div>
 
                      </div>
 
