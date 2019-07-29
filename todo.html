@@ -14,7 +14,7 @@
 
 <body>
     <h1>Simple React Todo App</h1>
-    <!--Render states in the DOM by looping through todo items using map functions-->
+    <!--Resolve unique key prop error!-->
     <div id="app"></div>
     <script type="text/babel">
 
@@ -27,14 +27,15 @@
                     input:""
                 }
             }
+            
             render(){
                  return (
                      <div>
                      <h3>List of Todo Items</h3>
                      <ul>
                         {
-                            this.state.tasks.map((task)=>
-                                <li>{task}</li>
+                            this.state.tasks.map((task, index)=>
+                                <li key ={index}>{task}</li>
                             )
                         }
                      
