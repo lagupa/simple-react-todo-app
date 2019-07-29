@@ -14,11 +14,18 @@
 
 <body>
     <h1>Simple React Todo App</h1>
-    <!--simple hello world react app-->
+    <!--Add a task state-->
     <div id="app"></div>
     <script type="text/babel">
 
         class Todo extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={
+                    tasks:["Item one", "Item two", "Item three"],
+                    input:""
+                }
+            }
             render(){
                  return (
                      <h1>Hello</h1>
