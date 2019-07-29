@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <!--Basic Styling with Bootstrap-->
+    <!--Validating Input Entry-->
     <div class="container-fluid bg-primary pt-5 pb-5">
         <h1 class="text-white container">Simple React Todo App</h1>
     </div>
@@ -55,7 +55,7 @@
                         </div>
                        
 
-                        <h3 className="pb-2 pt-4">List of Todo Items</h3>   <hr/>                    
+                        <h3 className="pb-2 pt-4">Number of Todo Items: {this.state.tasks.length}</h3>   <hr/>                    
                         <ul>
                         {(this.state.tasks).length >0 ?(this.state.tasks.map((task, index)=>   
                                     <li key ={index}>{task}</li>    
@@ -65,6 +65,7 @@
                                 )
                         }
                         </ul>
+
                      </div>
                  )      
             }
