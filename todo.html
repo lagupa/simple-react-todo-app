@@ -59,9 +59,11 @@
                         <ul>
                         {(this.state.tasks).length >0 ?(this.state.tasks.map((task, index)=>   
                                     <li key ={index}>
-                                         <h5>{task}   <button onClick={()=>this.deleteTask(index)} className="ml-3 btn btn-danger btn-sm">
-                                            Delele
-                                        </button></h5> 
+                                            <h5>{task}   
+                                            <button data-index={index} onClick={this.deleteTask} className="ml-3 btn btn-danger btn-sm">
+                                                Delele
+                                            </button>
+                                        </h5> 
                                          
                                     </li>    
                                 )
@@ -97,9 +99,9 @@
                 }
             }
 
-            deleteTask = (index)=>{
+            deleteTask = (e)=>{
+                const index = e.target.dataset.index;
                 this.setState(state=>{
-                    // never modify the content array directly instead use the [...this.state.tasks] to separate copy and then mess around with it.
                     let tasks =[...this.state.tasks];
                     tasks.splice(index, 1);
                     return{
